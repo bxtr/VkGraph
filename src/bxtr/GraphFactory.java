@@ -10,7 +10,4 @@ public class GraphFactory {
         return new UserNode();
     }
 
-    public static FriendLeaf newFriend() {
-
-    }
 }

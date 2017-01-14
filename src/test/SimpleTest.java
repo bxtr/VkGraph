@@ -21,8 +21,16 @@ public class SimpleTest {
         UserNode userOne = GraphFactory.newUserNode().setID(1).setName("Вова");
         UserNode userTwo = GraphFactory.newUserNode().setID(2).setName("Кеша");
         userOne.friends(userTwo);
-        Assert.assertEquals(true, userOne.isFriend(userTwo));
-        Assert.assertEquals(true, userTwo.isFriend(userOne));
+        Assert.assertEquals(true, userOne.isFriends(userTwo));
+        Assert.assertEquals(true, userTwo.isFriends(userOne));
+    }
+
+    @Test
+    public void NotFriendTest() {
+        UserNode userOne = GraphFactory.newUserNode().setID(1).setName("Вова");
+        UserNode userTwo = GraphFactory.newUserNode().setID(2).setName("Кеша");
+        Assert.assertEquals(false, userOne.isFriends(userTwo));
+        Assert.assertEquals(false, userTwo.isFriends(userOne));
     }
 
 }

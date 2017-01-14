@@ -9,6 +9,13 @@ public class UserNode {
     private String name;
 
 
+    public void friends(UserNode userNode) {
+        FriendGraph.getGraph().friends(this, userNode);
+    }
+
+    public boolean isFriends(UserNode node) {
+        return FriendGraph.getGraph().isFriends(this, node);
+    }
 
     public UserNode setName(String name) {
         this.name = name;

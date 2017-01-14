@@ -15,20 +15,19 @@ public class FriendLeaf {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof FriendLeaf)) return false;
-
-        FriendLeaf that = (FriendLeaf) o;
-
-        if (friendOne != null ? !friendOne.equals(that.friendOne) : that.friendOne != null) return false;
-        return friendTwo != null ? friendTwo.equals(that.friendTwo) : that.friendTwo == null;
+    public boolean equals(Object object) {
+        if (!(object instanceof FriendLeaf)) return false;
+        FriendLeaf friendLeaf = (FriendLeaf) object;
+        return (this.friendOne.equals(friendLeaf.friendOne) && this.friendTwo.equals(friendLeaf.friendTwo) ||
+                this.friendOne.equals(friendLeaf.friendTwo) && this.friendTwo.equals(friendLeaf.friendOne));
     }
 
     @Override
     public int hashCode() {
-        int result = friendOne != null ? friendOne.hashCode() : 0;
-        result = 31 * result + (friendTwo != null ? friendTwo.hashCode() : 0);
-        return result;
+        if(friendOne.getID() < friendTwo.getID()) {
+            return friendOne.getID();
+        } else {
+            return friendTwo.getID();
+        }
     }
 }
