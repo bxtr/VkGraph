@@ -33,4 +33,6 @@ public class SimpleTest {
         Assert.assertEquals(false, userTwo.isFriends(userOne));
     }
 
+
+
 }
